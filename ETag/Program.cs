@@ -28,15 +28,15 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-//app.MapControllers();
 app.UseDelta();
+app.MapControllers();
 
-var group = app.MapGroup("users");
-group.MapGet("/", async (string name, int top, UserServices userServices) =>
-{
-    var user = await userServices.GetUserByName(name, top);
-    return Results.Ok(user);
-});
+//var group = app.MapGroup("users");
+//group.MapGet("/", async (string name, int top, UserServices userServices) =>
+//{
+//    var user = await userServices.GetUserByName(name, top);
+//    return Results.Ok(user);
+//});
 
 
 app.Run();
